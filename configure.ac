@@ -1,9 +1,12 @@
-AC_INIT([ubavahid],[1.0],[schneider@blinkenlichts.net])
+AC_INIT([ubavahid],[0.1.0],[schneider@blinkenlichts.net])
 AM_INIT_AUTOMAKE([-Wall -Werror foreign])
 AC_PROG_CC
 CFLAGS="$CFLAGS -g -Wall -Wextra"
 
 AC_CHECK_HEADER(avahi-core/core.h,LIBS="$LIBS -lavahi-core",
+  AC_MSG_ERROR(avahi-core/core.h not found. Please install libavahi-dev.))
+
+AC_CHECK_HEADER(avahi-common/address.h,LIBS="$LIBS -lavahi-common",
   AC_MSG_ERROR(avahi-core/core.h not found. Please install libavahi-dev.))
 
 PKG_CHECK_MODULES(GLIB, glib-2.0 > 2.0.0,
