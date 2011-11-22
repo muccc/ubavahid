@@ -56,6 +56,10 @@ endef
 define Package/ubavahid/install
 	$(INSTALL_DIR) $(1)/usr/sbin
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/src/ubavahid $(1)/usr/sbin/ubavahid
+
+	$(INSTALL_DIR) $(1)/etc/init.d
+	$(INSTALL_BIN) ./files/ubavahid.init $(1)/etc/init.d/ubavahid
 endef
 
 $(eval $(call BuildPackage,ubavahid))
+
