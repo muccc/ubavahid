@@ -13,13 +13,12 @@
 
 #include "debug.h"
 
-GSocket *multicast_createSocket(gchar *groupname, guint port,
+GSocket *multicast_createSocket(gchar *interface, gchar *groupaddress, guint port,
                                  GSocketAddress **sa)
 {
-    groupname = NULL;
     GError *err = NULL;
     GInetAddress *addr =
-        g_inet_address_new_from_string("ff18:583:786d:8ec9:d3d6:fd2b:1155:e066");
+        g_inet_address_new_from_string(groupaddress);
     *sa = g_inet_socket_address_new(addr,port);
 
     GSocket *socket = g_socket_new(G_SOCKET_FAMILY_IPV6,
@@ -41,7 +40,7 @@ GSocket *multicast_createSocket(gchar *groupname, guint port,
 
     struct addrinfo *resmulti;
     struct ipv6_mreq mreq;
-    mreq.ipv6mr_interface = if_nametoindex("wlan0");
+    mreq.ipv6mr_interface = if_nametoindex(interface);
     gchar *tmp = g_inet_address_to_string(addr);
     syslog(LOG_DEBUG,"using address: %s\n",tmp);
     int ret = getaddrinfo(tmp, NULL, NULL, &resmulti);

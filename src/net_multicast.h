@@ -12,6 +12,6 @@
 #include <sys/socket.h>
 #include <netdb.h>
 
-GSocket * multicast_createSocket(gchar *groupname, guint port,
+GSocket * multicast_createSocket(gchar *interface, gchar *groupaddress, guint port,
                                  GSocketAddress **sa);
 #endif

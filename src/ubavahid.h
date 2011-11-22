@@ -9,11 +9,6 @@
 #include <gio/gio.h>
 #include "avahi.h"
 
-//struct ubavhidservice {
-//    char *json;
-//    uint32_t ttl;
-//};
-
-void ubavahid_init(void);
+void ubavahid_init(char *interface, char *groupaddress);
 
 #endif

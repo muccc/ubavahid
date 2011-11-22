@@ -41,12 +41,12 @@ struct command commands[] =
 
 static GHashTable *services;
 
-void ubavahid_init(void)
+void ubavahid_init(char *interface, char *groupaddress)
 {
     syslog(LOG_DEBUG,"ubavahid_init: starting listener");
     services = g_hash_table_new_full(g_str_hash, g_str_equal, g_free, g_free);
 
-    ubavahidsocket = multicast_createSocket("directoryserver", 2323, &sa);
+    ubavahidsocket = multicast_createSocket(interface, groupaddress, 2323, &sa);
     if( socket != NULL){
         syslog(LOG_DEBUG,"ubavahid_init: socket open");
         GSource *source = g_socket_create_source(ubavahidsocket,
