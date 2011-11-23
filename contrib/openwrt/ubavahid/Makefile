@@ -2,22 +2,22 @@
 
 include $(TOPDIR)/rules.mk
 
-PKG_REV:=bd9081031dda7a61cbb6d18894e34f7f9847b61f
+PKG_REV:=cf1547675ce65795eef0df3e799027a6f7b6b9db
 PKG_NAME:=ubavahid
 PKG_VERSION:=0.1.0
 PKG_RELEASE:=1
 
 PKG_BUILD_DIR:=$(BUILD_DIR)/$(PKG_NAME)
 
-#PKG_SOURCE_PROTO:=git
-#PKG_SOURCE_SUBDIR:=$(PKG_NAME)
-#PKG_SOURCE_VERSION:=$(PKG_REV)
-#PKG_SOURCE:=$(PKG_NAME)-$(PKG_REV).tar.gz
-#PKG_SOURCE_URL:=https://github.com/schneider42/ubd.git
+PKG_SOURCE_PROTO:=git
+PKG_SOURCE_SUBDIR:=$(PKG_NAME)
+PKG_SOURCE_VERSION:=$(PKG_REV)
+PKG_SOURCE:=$(PKG_NAME)-$(PKG_REV).tar.gz
+PKG_SOURCE_URL:=https://github.com/muccc/ubavahid.git
 
-PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
-PKG_BUILD_DIR:=$(BUILD_DIR)/$(PKG_NAME)-$(PKG_VERSION)
-PKG_SOURCE_URL:=http://web.xtort.eu/~schneider/
+#PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
+#PKG_BUILD_DIR:=$(BUILD_DIR)/$(PKG_NAME)-$(PKG_VERSION)
+#PKG_SOURCE_URL:=http://web.xtort.eu/~schneider/
 #PKG_FIXUP:=libtool
 
 

@@ -3,7 +3,7 @@
 START=80
 
 start() {
-	ubavahid br-lan
+	ubavahid eth0
 }
 
 stop() {
