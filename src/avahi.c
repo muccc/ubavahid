@@ -181,7 +181,9 @@ void avahi_registerAddress(struct service *s)
                 addr->entrygroup,
                 AVAHI_IF_UNSPEC,
                 AVAHI_PROTO_UNSPEC,
-                0,
+                AVAHI_PUBLISH_NO_REVERSE, // We might register multiple hostnames
+                                          // for a singe ip. This fails when
+                                          // PTR records are created.
                 addr->hostname,
                 &(addr->avahiaddress) )) < 0 ){
         syslog(LOG_ERR, "Failed to add address: %s\n", avahi_strerror(ret));
